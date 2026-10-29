@@ -1,11 +1,21 @@
-extends Node
 
+extends Control
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var lineas = [
+	"Buenas noches. Llamo por la farola del muelle.",
+	"Hace años que nadie habla del reloj roto.",
+	"No debería decir más. Cuelgo."
+]
 
+var linea_actual = 0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _ready():
+	mostrar_linea()
+
+func mostrar_linea():
+	print(lineas[linea_actual])
+
+func avanzar_linea():
+	if linea_actual < lineas.size() - 1:
+		linea_actual += 1
+		mostrar_linea()
